@@ -15,13 +15,12 @@
     --ink: #12141A;
     --ink-soft: #565F6B;
     --ink-faint: #9DA5AE;
-    --primary: #3C3BFF;
-    --primary-deep: #211FCC;
-    --primary-tint: #E9E9FF;
+    --primary: #1C8A54;
+    --primary-deep: #0E5D37;
+    --primary-tint: #E3F5EA;
     --accent: #FF5B35;
     --line: #E7E5DF;
-    --radius: 22px;
-    --radius-sm: 12px;
+    --radius: 18px;
   }
   *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
@@ -45,146 +44,148 @@
   /* header */
   header{
     position:fixed; top:0; left:0; right:0; z-index:60;
-    background:rgba(250,250,247,.82); backdrop-filter:blur(10px);
+    background:rgba(250,250,247,.9); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
   }
-  .header-inner{ max-width:1120px; margin:0 auto; padding:20px 28px; display:flex; align-items:center; justify-content:space-between; }
-  .brand{ display:flex; align-items:center; gap:10px; font-weight:900; font-size:16px; }
-  .brand-mark{ width:30px; height:30px; }
-  .brand small{ display:block; font-family:"Space Grotesk",sans-serif; font-weight:600; font-size:9.5px; letter-spacing:.2em; color:var(--ink-faint); }
+  .header-inner{ max-width:1120px; margin:0 auto; padding:18px 28px; display:flex; align-items:center; justify-content:space-between; }
+  .brand{ display:flex; align-items:center; gap:10px; font-weight:900; font-size:15px; }
+  .brand-mark{ width:28px; height:28px; }
+  .brand small{ display:block; font-family:"Space Grotesk",sans-serif; font-weight:600; font-size:9px; letter-spacing:.2em; color:var(--ink-faint); }
+  nav.main-nav{ display:flex; align-items:center; gap:28px; }
+  nav.main-nav a{ font-size:13px; font-weight:700; text-decoration:none; color:var(--ink-soft); transition:color .15s ease; }
+  nav.main-nav a:hover{ color:var(--primary); }
   .pill-btn{
     display:inline-flex; align-items:center; gap:8px; background:var(--ink); color:#fff;
-    padding:12px 22px; border-radius:999px; text-decoration:none; font-weight:700; font-size:13.5px;
+    padding:11px 20px; border-radius:999px; text-decoration:none; font-weight:700; font-size:13px;
     transition:background .15s ease, transform .15s ease;
   }
   .pill-btn:hover{ background:var(--primary); transform:translateY(-1px); }
 
-  /* hero */
-  .hero{ padding:150px 0 0; overflow:hidden; }
-  .hero .wrap{ position:relative; }
-  .blob{
-    position:absolute; z-index:-1; border-radius:50%;
-    background:radial-gradient(circle at 35% 30%, var(--primary) 0%, #8D8CFF 42%, rgba(255,91,53,.55) 100%);
-    filter:blur(60px); opacity:.55;
-    animation:pulse 7s ease-in-out infinite;
+  /* hero: full-bleed photo slide, like a corporate banner */
+  .hero{ position:relative; height:78vh; min-height:460px; max-height:720px; margin-top:0; overflow:hidden; }
+  .hero img{ width:100%; height:100%; object-fit:cover; }
+  .hero::after{ content:''; position:absolute; inset:0; background:var(--ink); opacity:.42; }
+  .hero-copy{
+    position:absolute; left:0; right:0; bottom:64px; z-index:2; color:#fff;
   }
-  .blob{ width:520px; height:520px; top:-160px; right:-160px; }
-  @keyframes pulse{ 0%,100%{ transform:scale(1); opacity:.5; } 50%{ transform:scale(1.12); opacity:.68; } }
-  @media (prefers-reduced-motion: reduce){ .blob{ animation:none; } }
+  .hero-copy .eyebrow{ color:#BFEBD3; }
+  .hero-copy h1{ font-size:clamp(28px,4.6vw,52px); line-height:1.4; font-weight:700; max-width:18ch; }
+  .hero-copy p{ margin-top:18px; max-width:46ch; color:#E7EEE9; font-size:15px; }
+  .hero-scroll{
+    position:absolute; right:28px; bottom:28px; z-index:2; color:#fff;
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    font-family:"Space Grotesk",sans-serif; font-size:10px; letter-spacing:.2em;
+  }
+  .hero-scroll .line{ width:1px; height:36px; background:rgba(255,255,255,.6); animation:scrolldown 1.8s ease-in-out infinite; }
+  @keyframes scrolldown{ 0%{ transform:scaleY(0); transform-origin:top; } 50%{ transform:scaleY(1); transform-origin:top; } 51%{ transform-origin:bottom; } 100%{ transform:scaleY(0); transform-origin:bottom; } }
+  @media (prefers-reduced-motion: reduce){ .hero-scroll .line{ animation:none; } }
 
-  .hero-eyebrow-line{ display:flex; align-items:center; gap:10px; margin-bottom:26px; }
-  .hero-eyebrow-line .dot{ width:8px; height:8px; border-radius:50%; background:var(--accent); }
-  .hero h1{
-    font-size:clamp(38px,7vw,84px); line-height:1.06; max-width:15ch;
-  }
-  .hero h1 .c1{ color:var(--primary); }
-  .hero h1 .c2{ -webkit-text-stroke:1.5px var(--ink); color:transparent; }
-  .hero p.lead{ margin:30px 0 0; max-width:44ch; color:var(--ink-soft); font-size:16px; }
-  .hero-cta{ margin-top:38px; display:flex; gap:14px; flex-wrap:wrap; padding-bottom:70px; }
-  .btn{ display:inline-flex; align-items:center; gap:8px; padding:16px 30px; font-size:14.5px; font-weight:700; text-decoration:none; border-radius:999px; }
-  .btn-primary{ background:var(--primary); color:#fff; box-shadow:0 10px 24px -8px rgba(60,59,255,.55); transition:transform .15s ease; }
-  .btn-primary:hover{ transform:translateY(-2px); }
-  .btn-ghost{ border:1.5px solid var(--ink); color:var(--ink); transition:background .15s ease,color .15s ease; }
-  .btn-ghost:hover{ background:var(--ink); color:#fff; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:14px 26px; font-size:14px; font-weight:700; text-decoration:none; border-radius:999px; }
+  .btn-primary{ background:var(--primary); color:#fff; transition:transform .15s ease, background .15s ease; }
+  .btn-primary:hover{ background:var(--primary-deep); transform:translateY(-2px); }
+  .btn-ghost-light{ border:1.4px solid rgba(255,255,255,.7); color:#fff; transition:background .15s ease; }
+  .btn-ghost-light:hover{ background:rgba(255,255,255,.14); }
 
-  /* marquee */
-  .marquee-wrap{ border-top:1.5px solid var(--ink); border-bottom:1.5px solid var(--ink); background:var(--ink); overflow:hidden; }
-  .marquee{ display:flex; white-space:nowrap; animation:scroll 26s linear infinite; }
-  @keyframes scroll{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
-  @media (prefers-reduced-motion: reduce){ .marquee{ animation:none; overflow-x:auto; } }
-  .marquee span{
-    display:inline-flex; align-items:center; gap:18px; color:#F2F2FF; font-weight:700; font-size:20px;
-    padding:18px 0; margin-right:18px;
+  /* feature block: text-only */
+  .feature{ padding:88px 0; border-bottom:1px solid var(--line); }
+  .feature .wrap{ max-width:680px; }
+  .feature-text .eyebrow{ color:var(--accent); }
+  .feature-text h2{ font-size:clamp(24px,3vw,32px); margin-bottom:20px; }
+  .feature-text p{ color:var(--ink-soft); font-size:14.5px; max-width:44ch; }
+  .feature-text .link-more{
+    display:inline-flex; align-items:center; gap:8px; margin-top:24px; font-weight:700; font-size:13.5px;
+    color:var(--primary); text-decoration:none; border-bottom:1.5px solid var(--primary); padding-bottom:2px;
   }
-  .marquee span::after{ content:'●'; color:var(--accent); font-size:10px; margin-left:18px; }
 
   /* services */
-  .services{ padding:110px 0 60px; }
-  .section-head{ max-width:640px; margin-bottom:56px; }
-  .section-head h2{ font-size:clamp(26px,3.6vw,38px); }
-  .section-head p{ color:var(--ink-soft); margin-top:16px; font-size:15px; }
-
+  .services{ padding:100px 0 60px; }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head h2{ font-size:clamp(24px,3.4vw,34px); }
+  .section-head p{ color:var(--ink-soft); margin-top:14px; font-size:14.5px; }
   .service-list{ border-top:1.5px solid var(--ink); }
   .service-row{
-    display:grid; grid-template-columns:90px 1fr 1.3fr; gap:28px; align-items:center;
-    padding:30px 0; border-bottom:1.5px solid var(--line);
+    position:relative; overflow:hidden;
+    display:grid; grid-template-columns:80px 1fr 1.3fr; gap:24px; align-items:center;
+    padding:26px 0; border-bottom:1.5px solid var(--line);
     transition:background .2s ease;
   }
+  .service-row::before{
+    content: attr(data-n);
+    position:absolute; right:12px; top:50%; transform:translateY(-50%);
+    font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:84px; line-height:1;
+    color:var(--ink); opacity:.04; pointer-events:none; z-index:0;
+  }
+  .service-row > *{ position:relative; z-index:1; }
   .service-row:hover{ background:var(--primary-tint); }
-  .service-row .num-face{ font-size:15px; font-weight:700; color:var(--ink-faint); }
-  .service-row h3{ font-size:20px; font-weight:700; display:flex; align-items:center; gap:14px; }
-  .service-row .icon{ width:30px; height:30px; flex-shrink:0; }
-  .service-row p{ margin:0; color:var(--ink-soft); font-size:14px; }
+  .service-row .num-face{ font-size:14px; font-weight:700; color:var(--ink-faint); }
+  .service-row h3{ font-size:18px; font-weight:700; display:flex; align-items:center; gap:12px; }
+  .service-row .icon{ width:26px; height:26px; flex-shrink:0; }
+  .service-row p{ margin:0; color:var(--ink-soft); font-size:13.5px; }
+
+  /* stats strip */
+  .stats-strip{ background:var(--ink); padding:52px 0; }
+  .stats-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+  .stat-item{ border-left:1.5px solid rgba(255,255,255,.2); padding-left:18px; }
+  .stat-item .val{ font-family:"Space Grotesk",sans-serif; font-weight:700; color:#fff; font-size:clamp(24px,3.2vw,36px); line-height:1; }
+  .stat-item .val span{ font-size:15px; font-weight:500; color:var(--accent); margin-left:4px; }
+  .stat-item .cap{ margin-top:9px; font-size:11.5px; color:#9DA5AE; letter-spacing:.03em; }
 
   /* works */
-  .works{ padding:100px 0 100px; }
-  .works-note{ font-size:12.5px; color:var(--ink-faint); margin-top:-32px; margin-bottom:46px; }
-  .work-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-  .work-card{
-    border-radius:var(--radius); overflow:hidden; background:var(--paper); border:1.5px solid var(--line);
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
+  .works{ padding:96px 0; }
+  .works-note{ font-size:12.5px; color:var(--ink-faint); margin-top:-30px; margin-bottom:44px; }
+  .work-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .work-card{ border-radius:var(--radius); overflow:hidden; background:var(--paper); border:1.5px solid var(--line); transition:transform .2s ease, box-shadow .2s ease; }
   .work-card:hover{ transform:translateY(-4px); box-shadow:0 18px 34px -18px rgba(18,20,26,.28); }
-  .work-visual{
-    height:150px; display:flex; align-items:center; justify-content:center;
-    background:linear-gradient(135deg, var(--primary) 0%, #7A79FF 60%, var(--accent) 130%);
-  }
-  .work-visual svg{ width:52px; height:52px; }
-  .work-card .body{ padding:22px 24px 26px; }
-  .work-card h3{ font-size:15.5px; font-weight:700; margin-bottom:8px; }
-  .work-card p{ font-size:13px; color:var(--ink-soft); margin:0; }
+  .work-visual{ height:138px; display:flex; align-items:center; justify-content:center; background:var(--primary); }
+  .work-card:nth-child(3n+2) .work-visual{ background:var(--ink); }
+  .work-card:nth-child(3n+3) .work-visual{ background:var(--primary-deep); }
+  .work-visual svg{ width:46px; height:46px; }
+  .work-card .body{ padding:20px 22px 24px; }
+  .work-card h3{ font-size:15px; font-weight:700; margin-bottom:8px; }
+  .work-card p{ font-size:12.5px; color:var(--ink-soft); margin:0; }
 
   /* profile */
-  .profile{ background:var(--ink); color:#F1F1EE; padding:100px 0 100px; border-radius:48px 48px 0 0; margin-top:20px; }
+  .profile{ background:var(--ink); color:#F1F1EE; padding:92px 0; }
   .profile .section-head h2{ color:#fff; }
   .profile .section-head p{ color:#B7BAC4; }
-  .profile-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:64px; }
-  .info-table{ width:100%; border-collapse:collapse; font-size:14.5px; }
+  .info-table{ width:100%; max-width:720px; border-collapse:collapse; font-size:14px; }
   .info-table tr{ border-top:1px solid rgba(255,255,255,.14); }
   .info-table tr:last-child{ border-bottom:1px solid rgba(255,255,255,.14); }
-  .info-table th{ text-align:left; padding:17px 20px 17px 0; width:120px; font-family:"Space Grotesk",sans-serif; font-weight:600; font-size:11.5px; letter-spacing:.08em; color:#8D91FF; vertical-align:top; white-space:nowrap; }
-  .info-table td{ padding:17px 0; vertical-align:top; }
+  .info-table th{ text-align:left; padding:16px 20px 16px 0; width:118px; font-family:"Space Grotesk",sans-serif; font-weight:600; font-size:11px; letter-spacing:.08em; color:#7FE0AE; vertical-align:top; white-space:nowrap; }
+  .info-table td{ padding:16px 0; vertical-align:top; }
 
-  .timeline{ display:flex; overflow-x:auto; gap:0; padding-bottom:10px; scrollbar-width:thin; }
-  .t-item{ min-width:150px; flex-shrink:0; padding:0 22px 0 0; border-right:1px solid rgba(255,255,255,.16); margin-right:22px; }
-  .t-item .yr{ font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:22px; color:var(--accent); display:block; margin-bottom:10px; }
-  .t-item p{ font-size:12.5px; color:#C4C6D0; margin:0; }
+  /* bottom banner CTAs (à la sanyu-denko 2-banner block) */
+  .banner-row{ display:grid; grid-template-columns:1fr 1fr; }
+  .banner-cta{
+    display:flex; flex-direction:column; justify-content:center; gap:10px;
+    padding:56px 44px; text-decoration:none; color:#fff; position:relative; overflow:hidden; min-height:180px;
+  }
+  .banner-cta.tel{ background:var(--primary-deep); }
+  .banner-cta.mail{ background:var(--ink); }
+  .banner-cta .b-eyebrow{ font-family:"Space Grotesk",sans-serif; font-size:11px; letter-spacing:.2em; color:rgba(255,255,255,.65); text-transform:uppercase; }
+  .banner-cta .b-title{ font-size:22px; font-weight:700; }
+  .banner-cta .b-arrow{ margin-top:6px; font-family:"Space Grotesk",sans-serif; font-size:13px; font-weight:700; display:flex; align-items:center; gap:8px; }
+  .banner-cta:hover .b-arrow{ gap:12px; }
+  .banner-cta .b-arrow{ transition:gap .15s ease; }
 
-  /* access / closing CTA */
-  .access{ padding:110px 0 60px; }
-  .cta-panel{
-    background:linear-gradient(120deg, var(--primary) 0%, #6E6DFF 100%); border-radius:var(--radius);
-    padding:70px 56px; color:#fff; position:relative; overflow:hidden;
-  }
-  .cta-panel::after{
-    content:''; position:absolute; width:340px; height:340px; border-radius:50%;
-    background:rgba(255,91,53,.4); filter:blur(50px); right:-90px; bottom:-120px;
-  }
-  .cta-panel .eyebrow{ color:#FFD9CC; }
-  .cta-panel h2{ color:#fff; font-size:clamp(26px,3.6vw,36px); max-width:20ch; }
-  .cta-phone{
-    font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:clamp(34px,6vw,58px);
-    color:#fff; text-decoration:none; display:inline-block; margin-top:30px; letter-spacing:-.02em;
-    border-bottom:3px solid rgba(255,255,255,.5); position:relative; z-index:1;
-  }
-  .cta-meta{ margin-top:34px; display:flex; gap:40px; flex-wrap:wrap; font-size:13.5px; color:#E4E3FF; position:relative; z-index:1; }
-  .cta-meta div span{ display:block; font-family:"Space Grotesk",sans-serif; font-size:10.5px; letter-spacing:.14em; color:#C4C3FF; margin-bottom:5px; }
-
-  footer{ padding:44px 0; }
+  footer{ padding:40px 0; }
   .footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; font-size:12px; color:var(--ink-faint); }
-  .footer-brand{ color:var(--ink); font-weight:900; font-size:14px; }
+  .footer-brand{ color:var(--ink); font-weight:900; font-size:13.5px; }
+  .footer-links{ display:flex; gap:18px; }
+  .footer-links a{ text-decoration:none; color:var(--ink-faint); }
+  .footer-links a:hover{ color:var(--primary); }
 
   @media (max-width:860px){
-    .service-row{ grid-template-columns:1fr; gap:8px; }
+    nav.main-nav{ display:none; }
+    .service-row{ grid-template-columns:1fr; gap:6px; }
+    .service-row::before{ font-size:56px; }
+    .stats-grid{ grid-template-columns:1fr 1fr; row-gap:28px; }
     .work-grid{ grid-template-columns:1fr 1fr; }
-    .profile-grid{ grid-template-columns:1fr; gap:48px; }
-    .cta-panel{ padding:48px 30px; }
+    .banner-row{ grid-template-columns:1fr; }
   }
   @media (max-width:560px){
-    .hero{ padding:130px 0 0; }
-    .blob{ width:340px; height:340px; top:-120px; right:-120px; }
+    .hero{ height:66vh; }
     .work-grid{ grid-template-columns:1fr; }
-    .marquee span{ font-size:16px; }
-    .profile{ border-radius:32px 32px 0 0; }
   }
 </style>
 </head>
@@ -199,19 +200,47 @@
       </svg>
       <span>サクセスブロードカンパニー株式会社<small>SUCCESS BROAD COMPANY</small></span>
     </div>
+    <nav class="main-nav">
+      <a href="#about">会社について</a>
+      <a href="#services">事業内容</a>
+      <a href="#company">会社概要</a>
+    </nav>
     <a class="pill-btn" href="tel:0586755711">0586-75-5711</a>
   </div>
 </header>
 
 <section class="hero">
-  <div class="wrap">
-    <div class="blob"></div>
-    <div class="hero-eyebrow-line"><span class="dot"></span><span class="eyebrow">Electric / Communication / Energy</span></div>
-    <h1><span class="c1">電気</span>と<span class="c2">通信</span>で、<br>暮らしに電流を。</h1>
-    <p class="lead">愛知県一宮市を拠点に、電気工事・通信工事・CATV工事から太陽光発電、オール電化まで。有資格者による確かな施工で現場にお応えします。</p>
-    <div class="hero-cta">
+  <img src="hero.jpg" alt="サクセスブロードカンパニーが拠点とする一宮市の夜景">
+  <div class="wrap hero-copy">
+    <p class="eyebrow">Electric / Communication / Energy</p>
+    <h1>電気と通信で、<br>暮らしに、確かな安心を。</h1>
+    <p>愛知県一宮市を拠点に、電気工事・通信工事・CATV工事から太陽光発電、オール電化まで。有資格者による確かな施工で現場にお応えします。</p>
+    <div class="hero-cta" style="margin-top:30px; display:flex; gap:12px; flex-wrap:wrap;">
       <a class="btn btn-primary" href="tel:0586755711">電話で相談する</a>
-      <a class="btn btn-ghost" href="#services">事業内容を見る</a>
+      <a class="btn btn-ghost-light" href="#services">事業内容を見る</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>SCROLL</span><span class="line"></span></div>
+</section>
+
+<section class="feature" id="about">
+  <div class="wrap">
+    <div class="feature-text">
+      <p class="eyebrow">About Us</p>
+      <h2>地域に根づき、<br>地域のために。</h2>
+      <p>2006年の設立以来、愛知県一宮市を拠点に電気・通信インフラの工事を手がけてきました。CATVや電気配線はもちろん、太陽光発電やオール電化といった省エネ設備の導入まで、暮らしと事業の基盤を技術力で支えます。</p>
+      <a class="link-more" href="#company">会社概要を見る →</a>
+    </div>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="wrap">
+    <div class="feature-text">
+      <p class="eyebrow">Services</p>
+      <h2>技術力と安全性で<br>選ばれる専門集団。</h2>
+      <p>電気工事・通信工事・CATV工事を軸に、太陽光発電やエコキュート、地上デジタル関連工事まで、有資格者が一件ずつ丁寧に施工します。住宅から店舗・施設まで、規模を問わずご相談いただけます。</p>
+      <a class="link-more" href="#services">事業内容をすべて見る →</a>
     </div>
   </div>
 </section>
@@ -225,40 +254,49 @@
     </div>
     <div class="service-list">
 
-      <div class="service-row">
+      <div class="service-row" data-n="01">
         <div class="num-face">01</div>
-        <h3><svg class="icon" viewBox="0 0 34 34" fill="none"><path d="M19 3L8 19h7l-2 12L27 15h-8l0-12z" stroke="#3C3BFF" stroke-width="1.8" stroke-linejoin="round"/></svg>電気工事</h3>
+        <h3><svg class="icon" viewBox="0 0 34 34" fill="none"><path d="M19 3L8 19h7l-2 12L27 15h-8l0-12z" stroke="#1C8A54" stroke-width="1.8" stroke-linejoin="round"/></svg>電気工事</h3>
         <p>住宅・店舗・施設の配線・盤工事など、暮らしと事業を支える電気設備を施工します。</p>
       </div>
-      <div class="service-row">
+      <div class="service-row" data-n="02">
         <div class="num-face">02</div>
-        <h3><svg class="icon" viewBox="0 0 34 34" fill="none"><path d="M9 22c4.4-4.4 11.6-4.4 16 0M13 18c2.2-2.2 5.8-2.2 8 0M17 26h.01" stroke="#3C3BFF" stroke-width="1.8" stroke-linecap="round"/><circle cx="17" cy="10" r="4" stroke="#3C3BFF" stroke-width="1.8"/></svg>通信工事・CATV工事</h3>
+        <h3><svg class="icon" viewBox="0 0 34 34" fill="none"><path d="M9 22c4.4-4.4 11.6-4.4 16 0M13 18c2.2-2.2 5.8-2.2 8 0M17 26h.01" stroke="#1C8A54" stroke-width="1.8" stroke-linecap="round"/><circle cx="17" cy="10" r="4" stroke="#1C8A54" stroke-width="1.8"/></svg>通信工事・CATV工事</h3>
         <p>CATV配線やインターネット・LAN環境の敷設まで、通信インフラを整えます。</p>
       </div>
-      <div class="service-row">
+      <div class="service-row" data-n="03">
         <div class="num-face">03</div>
-        <h3><svg class="icon" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="5" stroke="#3C3BFF" stroke-width="1.8"/><path d="M17 4v4M17 26v4M4 17h4M26 17h4M8 8l3 3M23 23l3 3M26 8l-3 3M11 23l-3 3" stroke="#3C3BFF" stroke-width="1.8" stroke-linecap="round"/></svg>太陽光発電システム</h3>
+        <h3><svg class="icon" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="5" stroke="#1C8A54" stroke-width="1.8"/><path d="M17 4v4M17 26v4M4 17h4M26 17h4M8 8l3 3M23 23l3 3M26 8l-3 3M11 23l-3 3" stroke="#1C8A54" stroke-width="1.8" stroke-linecap="round"/></svg>太陽光発電システム</h3>
         <p>ソーラーパネルの設置設計から施工まで、創エネ設備の導入をサポートします。</p>
       </div>
-      <div class="service-row">
+      <div class="service-row" data-n="04">
         <div class="num-face">04</div>
-        <h3><svg class="icon" viewBox="0 0 34 34" fill="none"><path d="M17 5c5 6 8 10 8 14a8 8 0 1 1-16 0c0-4 3-8 8-14z" stroke="#3C3BFF" stroke-width="1.8" stroke-linejoin="round"/></svg>エコキュート・オール電化</h3>
+        <h3><svg class="icon" viewBox="0 0 34 34" fill="none"><path d="M17 5c5 6 8 10 8 14a8 8 0 1 1-16 0c0-4 3-8 8-14z" stroke="#1C8A54" stroke-width="1.8" stroke-linejoin="round"/></svg>エコキュート・オール電化</h3>
         <p>給湯・調理まで電気でまかなうオール電化システムの設置・切り替えに対応します。</p>
       </div>
-      <div class="service-row">
+      <div class="service-row" data-n="05">
         <div class="num-face">05</div>
-        <h3><svg class="icon" viewBox="0 0 34 34" fill="none"><rect x="6" y="6" width="22" height="16" rx="1" stroke="#3C3BFF" stroke-width="1.8"/><path d="M12 28h10M17 22v6" stroke="#3C3BFF" stroke-width="1.8" stroke-linecap="round"/></svg>地上デジタル関連工事</h3>
+        <h3><svg class="icon" viewBox="0 0 34 34" fill="none"><rect x="6" y="6" width="22" height="16" rx="1" stroke="#1C8A54" stroke-width="1.8"/><path d="M12 28h10M17 22v6" stroke="#1C8A54" stroke-width="1.8" stroke-linecap="round"/></svg>地上デジタル関連工事</h3>
         <p>アンテナ設置や関連配線など、地デジ放送を受信するための工事を行います。</p>
       </div>
-      <div class="service-row">
+      <div class="service-row" data-n="06">
         <div class="num-face">06</div>
-        <h3><svg class="icon" viewBox="0 0 34 34" fill="none"><rect x="5" y="9" width="24" height="16" rx="1.5" stroke="#3C3BFF" stroke-width="1.8"/><path d="M9 13h6M9 17h10M9 21h4" stroke="#3C3BFF" stroke-width="1.8" stroke-linecap="round"/></svg>インターネット・LAN工事</h3>
+        <h3><svg class="icon" viewBox="0 0 34 34" fill="none"><rect x="5" y="9" width="24" height="16" rx="1.5" stroke="#1C8A54" stroke-width="1.8"/><path d="M9 13h6M9 17h10M9 21h4" stroke="#1C8A54" stroke-width="1.8" stroke-linecap="round"/></svg>インターネット・LAN工事</h3>
         <p>宅内・施設内のネットワーク配線設計から接続工事まで対応します。</p>
       </div>
 
     </div>
   </div>
 </section>
+
+<div class="stats-strip">
+  <div class="wrap stats-grid">
+    <div class="stat-item"><div class="val">2006<span>年</span></div><div class="cap">設立</div></div>
+    <div class="stat-item"><div class="val">5,000<span>万円</span></div><div class="cap">資本金</div></div>
+    <div class="stat-item"><div class="val">15<span>名</span></div><div class="cap">従業員数(グループ全体 25名)</div></div>
+    <div class="stat-item"><div class="val">6<span>分野</span></div><div class="cap">対応する事業領域</div></div>
+  </div>
+</div>
 
 <section class="works">
   <div class="wrap">
@@ -299,47 +337,31 @@
 
 <section class="profile" id="company">
   <div class="wrap">
-    <div class="profile-grid">
-      <div>
-        <div class="section-head">
-          <p class="eyebrow">Company Profile</p>
-          <h2 style="font-size:30px;">会社概要</h2>
-        </div>
-        <table class="info-table">
-          <tr><th>会社名</th><td>サクセスブロードカンパニー株式会社</td></tr>
-          <tr><th>所在地</th><td>〒491-0822<br>愛知県一宮市大和町於保字北屋敷前1371番地</td></tr>
-          <tr><th>電話 / FAX</th><td>TEL 0586-75-5711 ／ FAX 0586-75-5712</td></tr>
-          <tr><th>代表者</th><td>代表取締役　渡邊　聡</td></tr>
-          <tr><th>資本金</th><td>5,000万円</td></tr>
-          <tr><th>設立</th><td>2006年12月27日</td></tr>
-          <tr><th>従業員数</th><td>15名（グループ全体 25名）</td></tr>
-          <tr><th>事業内容</th><td>CATV工事、通信工事、電気工事、インターネット設置工事、太陽光発電・エコキュート・オール電化システムの設置工事、地上デジタルテレビ関連工事 ほか</td></tr>
-        </table>
-      </div>
-      </div>
+    <div class="section-head">
+      <p class="eyebrow">Company Profile</p>
+      <h2 style="font-size:28px;">会社概要</h2>
     </div>
-  </div>
-</section>
-
-<section class="access" id="access">
-  <div class="wrap">
-    <div class="cta-panel">
-      <p class="eyebrow">Contact</p>
-      <h2>お見積り・ご相談は<br>お気軽にどうぞ。</h2>
-      <a class="cta-phone" href="tel:0586755711">0586-75-5711</a>
-      <div class="cta-meta">
-        <div><span>FAX</span>0586-75-5712</div>
-        <div><span>所在地</span>愛知県一宮市大和町於保字北屋敷前1371番地</div>
-        <div><span>受付</span>お電話にてご連絡ください</div>
-      </div>
-    </div>
+    <table class="info-table">
+      <tr><th>会社名</th><td>サクセスブロードカンパニー株式会社</td></tr>
+      <tr><th>所在地</th><td>〒491-0822<br>愛知県一宮市大和町於保字北屋敷前1371番地</td></tr>
+      <tr><th>電話 / FAX</th><td>TEL 0586-75-5711 ／ FAX 0586-75-5712</td></tr>
+      <tr><th>代表者</th><td>代表取締役　渡邊　聡</td></tr>
+      <tr><th>資本金</th><td>5,000万円</td></tr>
+      <tr><th>設立</th><td>2006年12月27日</td></tr>
+      <tr><th>従業員数</th><td>15名（グループ全体 25名）</td></tr>
+      <tr><th>事業内容</th><td>CATV工事、通信工事、電気工事、インターネット設置工事、太陽光発電・エコキュート・オール電化システムの設置工事、地上デジタルテレビ関連工事 ほか</td></tr>
+    </table>
   </div>
 </section>
 
 <footer>
   <div class="wrap footer-inner">
     <span class="footer-brand">サクセスブロードカンパニー株式会社</span>
-    <span>〒491-0822 愛知県一宮市大和町於保字北屋敷前1371番地</span>
+    <div class="footer-links">
+      <a href="#about">会社について</a>
+      <a href="#services">事業内容</a>
+      <a href="#company">会社概要</a>
+    </div>
     <span>&copy; SUCCESS BROAD COMPANY. All Rights Reserved.</span>
   </div>
 </footer>
