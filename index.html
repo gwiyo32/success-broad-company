@@ -3,22 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SUCプランニング有限会社 | 電気・通信・省エネ設備の総合施工</title>
-<meta name="description" content="愛知県一宮市のSUCプランニング有限会社。電気工事・LAN工事から太陽光発電、エコキュート・オール電化、EV充電設備まで、地域の暮らしと事業を支えます。">
+<title>一宮市の電気工事・再エネ・系統蓄電池EPC｜SUCプランニング有限会社</title>
+<meta name="description" content="愛知県一宮市の電気工事会社、SUCプランニング有限会社。電気工事・LAN工事、太陽光発電・系統蓄電池の設計施工（EPC）、エコキュート・オール電化、EV充電設備に対応。特定建設業許可（電気工事業）取得、有資格者が施工します。岐阜県郡上市に営業所。">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#004A8B">
+<link rel="canonical" href="https://s-u-c.co.jp/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SUCプランニング有限会社">
+<meta property="og:title" content="一宮市の電気工事・再エネ・系統蓄電池EPC｜SUCプランニング有限会社">
+<meta property="og:description" content="愛知県一宮市の電気工事会社。電気工事・LAN工事、太陽光発電・系統蓄電池の設計施工、オール電化、EV充電設備に対応します。">
+<meta property="og:url" content="https://s-u-c.co.jp/">
+<meta property="og:image" content="https://s-u-c.co.jp/img/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #FAFAF7;
+    --bg: #FFFFFF;
     --paper: #FFFFFF;
     --ink: #12141A;
     --ink-soft: #565F6B;
     --ink-faint: #9DA5AE;
-    --primary: #1C8A54;
-    --primary-deep: #0E5D37;
-    --primary-tint: #E3F5EA;
-    --accent: #FF5B35;
+    --primary: #004A8B;
+    --primary-deep: #00335F;
+    --primary-tint: #EAF1F8;
+    --accent: #004A8B;
+    --row-bg: #F6F6F4;
     --line: #E7E5DF;
     --radius: 18px;
   }
@@ -44,8 +59,9 @@
   /* header */
   header{ background:var(--paper); border-bottom:1px solid var(--line); }
   .header-inner{ max-width:1120px; margin:0 auto; padding:18px 28px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-  .brand{ font-weight:900; font-size:15px; text-decoration:none; line-height:1.4; }
-  .brand small{ display:block; font-family:"Space Grotesk",sans-serif; font-weight:600; font-size:9px; letter-spacing:.2em; color:var(--ink-faint); }
+  .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .brand-mark{ height:30px; width:auto; }
+  .brand-kana{ height:21px; width:auto; }
   .header-right{ display:flex; align-items:center; gap:28px; }
   nav.main-nav{ display:flex; align-items:center; gap:28px; }
   nav.main-nav a{ font-size:13px; font-weight:700; text-decoration:none; color:var(--ink-soft); transition:color .15s ease; }
@@ -59,50 +75,89 @@
 
   /* hero */
   .hero{
-    position:relative; height:78vh; min-height:460px; max-height:720px; overflow:hidden;
-    background:linear-gradient(135deg, var(--primary-deep), var(--ink)); /* 画像が読み込めない場合の背景 */
+    min-height:clamp(380px, 62vh, 620px);
+    display:flex; align-items:center; justify-content:center;
+    background:var(--paper); padding:60px 24px;
   }
-  .hero img{ width:100%; height:100%; object-fit:cover; }
-  .hero::after{ content:''; position:absolute; inset:0; background:var(--ink); opacity:.42; }
-  .hero-copy{ position:absolute; left:0; right:0; bottom:64px; z-index:2; color:#fff; }
-  .hero-copy .eyebrow{ color:#BFEBD3; }
-  .hero-copy h1{ font-size:clamp(28px,4.6vw,52px); line-height:1.4; font-weight:700; max-width:18ch; }
-  .hero-copy p{ margin-top:18px; max-width:46ch; color:#E7EEE9; font-size:15px; }
-  .hero-scroll{
-    position:absolute; right:28px; bottom:28px; z-index:2; color:#fff;
-    display:flex; flex-direction:column; align-items:center; gap:8px;
-    font-family:"Space Grotesk",sans-serif; font-size:10px; letter-spacing:.2em;
-  }
-  .hero-scroll .line{ width:1px; height:36px; background:rgba(255,255,255,.6); animation:scrolldown 1.8s ease-in-out infinite; }
-  @keyframes scrolldown{ 0%{ transform:scaleY(0); transform-origin:top; } 50%{ transform:scaleY(1); transform-origin:top; } 51%{ transform-origin:bottom; } 100%{ transform:scaleY(0); transform-origin:bottom; } }
-  @media (prefers-reduced-motion: reduce){ .hero-scroll .line{ animation:none; } html{ scroll-behavior:auto; } }
+  .hero-inner{ display:flex; align-items:center; gap:clamp(18px,2.4vw,28px); }
+  .hero-mark{ width:clamp(120px,15vw,190px); height:auto; }
+  .hero-tagline{ margin:0; font-size:clamp(20px,2.4vw,30px); line-height:1.55; font-weight:700; color:var(--primary); letter-spacing:.06em; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
 
   /* section head */
   .section-head{ max-width:640px; margin-bottom:52px; }
-  .section-head h2{ font-size:clamp(24px,3.4vw,34px); }
+  .section-head h2{ font-size:clamp(24px,3.4vw,34px); display:flex; align-items:baseline; flex-wrap:wrap; column-gap:18px; }
+  .section-head h2 .en{ font-family:"Space Grotesk",sans-serif; font-size:13px; font-weight:600; letter-spacing:.32em; text-transform:uppercase; color:var(--ink); }
+  .profile .section-head h2 .en{ color:#9CC3E8; }
   .section-head p{ color:var(--ink-soft); margin-top:14px; font-size:14.5px; }
 
   /* services */
   .services{ padding:100px 0 60px; }
-  .service-list{ border-top:1.5px solid var(--ink); }
-  .service-row{
-    position:relative; overflow:hidden;
-    display:grid; grid-template-columns:80px 1fr 1.3fr; gap:24px; align-items:center;
-    padding:26px 0; border-bottom:1.5px solid var(--line);
-    transition:background .2s ease;
-  }
+  .services{ overflow-x:clip; }
+  .service-list{ display:flex; flex-direction:column; }
+  .service-row{ position:relative; display:grid; grid-template-columns:72px 1fr; align-items:stretch; }
   .service-row::before{
-    content: attr(data-n);
-    position:absolute; right:12px; top:50%; transform:translateY(-50%);
-    font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:84px; line-height:1;
-    color:var(--ink); opacity:.04; pointer-events:none; z-index:0;
+    content:''; position:absolute; right:calc(100% + 18px); top:50%; transform:translateY(-50%);
+    width:50vw; height:32px; background:var(--primary);
   }
-  .service-row > *{ position:relative; z-index:1; }
-  .service-row:hover{ background:var(--primary-tint); }
-  .service-row .num-face{ font-size:14px; font-weight:700; color:var(--ink-faint); }
+  .service-num{ display:flex; align-items:center; font-size:32px; font-weight:700; color:var(--ink); line-height:1; }
+  .service-body{
+    position:relative; overflow:hidden;
+    display:grid; grid-template-columns:1fr 1.3fr; gap:24px; align-items:center;
+    background:var(--row-bg); padding:28px 28px 28px 32px; border-bottom:1px solid var(--line);
+  }
+  .service-row:last-child .service-body{ border-bottom:0; }
+  .service-body::after{
+    content: attr(data-n);
+    position:absolute; right:14px; top:50%; transform:translateY(-50%);
+    font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:84px; line-height:1;
+    color:var(--ink); opacity:.045; pointer-events:none;
+  }
+  .service-body > *{ position:relative; z-index:1; }
   .service-row h3{ font-size:18px; font-weight:700; display:flex; align-items:center; gap:12px; }
   .service-row .icon{ width:26px; height:26px; flex-shrink:0; }
   .service-row p{ margin:0; color:var(--ink-soft); font-size:13.5px; }
+
+  /* business blocks */
+  .biz + .biz{ margin-top:80px; }
+  .biz-head{ display:flex; align-items:baseline; gap:18px; flex-wrap:wrap; margin-bottom:22px; }
+  .biz-head .biz-no{ font-family:"Space Grotesk",sans-serif; font-size:12px; font-weight:700; letter-spacing:.2em; color:var(--accent); }
+  .biz-head h3{ font-size:clamp(20px,2.6vw,24px); font-weight:900; }
+  .biz-head p{ margin:0; flex-basis:100%; color:var(--ink-soft); font-size:13.5px; }
+  .rental-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .rental-card{
+    display:flex; gap:20px; align-items:flex-start;
+    background:var(--paper); border:1.5px solid var(--line); border-radius:var(--radius); padding:26px 28px;
+  }
+  .rental-card .badge{
+    width:56px; height:56px; flex-shrink:0; border-radius:14px; background:var(--primary-tint);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .rental-card .badge svg{ width:30px; height:30px; }
+  .rental-card .kind{ font-size:12px; font-weight:700; color:var(--primary); letter-spacing:.06em; }
+  .rental-card h4{ margin:2px 0 8px; font-size:18px; font-weight:900; }
+  .rental-card p{ margin:0; font-size:13px; color:var(--ink-soft); }
+  .stay-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  .stay-card{
+    background:var(--paper); border:1.5px solid var(--line); border-radius:var(--radius);
+    padding:22px 22px 24px; border-top:4px solid var(--primary);
+  }
+  .stay-card .pref{ font-size:12px; font-weight:700; color:var(--ink-faint); letter-spacing:.06em; }
+  .stay-card .city{ margin-top:4px; font-size:19px; font-weight:900; line-height:1.4; }
+
+  /* greeting */
+  .greeting{ padding:96px 0; }
+  .greeting-inner{ display:grid; grid-template-columns:300px 1fr; gap:56px; align-items:start; }
+  .greeting-photo{
+    aspect-ratio:3/4; border-radius:var(--radius); overflow:hidden;
+    background:linear-gradient(160deg, var(--primary-tint), #CFE7D9); /* 写真が読み込めない場合の背景 */
+  }
+  .greeting-photo img{ width:100%; height:100%; object-fit:cover; }
+  .greeting-body .section-head{ margin-bottom:28px; }
+  .greeting-body p{ margin:0 0 1.2em; font-size:14.5px; color:var(--ink-soft); line-height:2; }
+  .greeting-sign{ margin-top:32px; display:flex; align-items:baseline; gap:16px; }
+  .greeting-sign .role{ font-size:13px; color:var(--ink-soft); }
+  .greeting-sign .name{ font-size:24px; font-weight:900; letter-spacing:.12em; }
 
   /* works */
   .works{ padding:60px 0 100px; }
@@ -144,12 +199,13 @@
   .info-table{ width:100%; max-width:720px; border-collapse:collapse; font-size:14px; }
   .info-table tr{ border-top:1px solid rgba(255,255,255,.14); }
   .info-table tr:last-child{ border-bottom:1px solid rgba(255,255,255,.14); }
-  .info-table th{ text-align:left; padding:16px 20px 16px 0; width:118px; font-weight:600; font-size:12.5px; letter-spacing:.08em; color:#7FE0AE; vertical-align:top; white-space:nowrap; }
+  .info-table th{ text-align:left; padding:16px 20px 16px 0; width:118px; font-weight:600; font-size:12.5px; letter-spacing:.08em; color:#9CC3E8; vertical-align:top; white-space:nowrap; }
   .info-table td{ padding:16px 0; vertical-align:top; }
   .info-table .loc-label{ display:block; font-size:12px; font-weight:700; color:#B7BAC4; }
   .info-table .loc-sep{ display:block; height:14px; }
   .info-table a{ text-decoration:none; }
-  .info-table a:hover{ color:#7FE0AE; }
+  .info-table .map-link{ display:inline-block; margin-top:4px; font-size:12px; color:#9CC3E8; text-decoration:underline; text-underline-offset:3px; }
+  .info-table a:hover{ color:#9CC3E8; }
 
   /* contact */
   .contact{ background:var(--primary-deep); color:#fff; padding:72px 0; }
@@ -169,38 +225,99 @@
   /* footer */
   footer{ padding:40px 0; }
   .footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; font-size:12px; color:var(--ink-faint); }
-  .footer-brand{ color:var(--ink); font-weight:900; font-size:13.5px; }
+  .footer-logo{ height:16px; width:auto; }
   .footer-links{ display:flex; gap:18px; }
   .footer-links a{ text-decoration:none; color:var(--ink-faint); }
   .footer-links a:hover{ color:var(--primary); }
 
   @media (max-width:860px){
     nav.main-nav{ display:none; }
-    .service-row{ grid-template-columns:1fr; gap:6px; }
-    .service-row::before{ font-size:56px; }
+    .service-row{ grid-template-columns:54px 1fr; }
+    .service-row::before{ height:24px; right:calc(100% + 10px); }
+    .service-num{ font-size:24px; }
+    .service-body{ grid-template-columns:1fr; gap:6px; padding:22px 20px; }
+    .service-body::after{ font-size:56px; }
     .work-grid{ grid-template-columns:1fr 1fr; }
+    .rental-grid{ grid-template-columns:1fr; }
+    .stay-grid{ grid-template-columns:1fr 1fr; }
+    .greeting-inner{ grid-template-columns:1fr; gap:36px; }
+    .greeting-photo{ max-width:280px; }
   }
   @media (max-width:560px){
     .wrap, .header-inner{ padding-left:16px; padding-right:16px; }
-    .hero{ height:66vh; }
-    .hero-scroll{ display:none; }
+    .hero-inner{ flex-direction:column; text-align:center; }
+    .brand-mark{ height:24px; } .brand-kana{ height:17px; }
     .work-grid{ grid-template-columns:1fr; }
-    .brand{ font-size:13.5px; }
     .pill-btn{ padding:10px 14px; font-size:12px; }
     .footer-inner{ flex-direction:column; align-items:flex-start; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Electrician",
+  "@id": "https://s-u-c.co.jp/#company",
+  "name": "SUCプランニング有限会社",
+  "alternateName": "SUC PLANNING CO., LTD.",
+  "url": "https://s-u-c.co.jp/",
+  "logo": "https://s-u-c.co.jp/img/apple-touch-icon.png",
+  "image": "https://s-u-c.co.jp/img/ogp.png",
+  "telephone": "+81-586-81-3584",
+  "foundingDate": "2001-12-20",
+  "numberOfEmployees": { "@type": "QuantitativeValue", "value": 7 },
+  "address": {
+    "@type": "PostalAddress",
+    "postalCode": "491-0812",
+    "addressRegion": "愛知県",
+    "addressLocality": "一宮市",
+    "streetAddress": "千秋町芝原字下山38-2",
+    "addressCountry": "JP"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "愛知県一宮市" },
+    { "@type": "State", "name": "愛知県" },
+    { "@type": "City", "name": "岐阜県郡上市" }
+  ],
+  "department": {
+    "@type": "LocalBusiness",
+    "name": "SUCプランニング有限会社 郡上営業所",
+    "address": {
+      "@type": "PostalAddress",
+      "postalCode": "501-4207",
+      "addressRegion": "岐阜県",
+      "addressLocality": "郡上市",
+      "streetAddress": "八幡町西乙原5-3",
+      "addressCountry": "JP"
+    }
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "事業内容",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "電気工事" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "再エネ・系統蓄電池EPC（太陽光発電・系統蓄電池の設計及び施工）" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "エコキュート・オール電化工事" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "EV充電設備工事" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "インターネット・LAN工事" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "レンタカー（エコカーレンタカー一宮）" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "レンタルスキー（めいほう れんたろう）" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "マンスリー賃貸" } }
+    ]
+  }
+}
+</script>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <a class="brand" href="#top">SUCプランニング有限会社<small>SUC PLANNING CO., LTD.</small></a>
+    <a class="brand" href="#top" aria-label="SUCプランニング有限会社 トップへ"><img class="brand-mark" src="img/logo-mark.svg" alt="" width="60" height="30"><img class="brand-kana" src="img/logo-kana.png" alt="SUCプランニング" width="177" height="21"></a>
     <div class="header-right">
       <nav class="main-nav" aria-label="メインメニュー">
         <a href="#services">事業内容</a>
         <a href="#works">施工実績</a>
         <a href="#qualifications">保有資格</a>
+        <a href="#greeting">社長挨拶</a>
         <a href="#company">会社概要</a>
       </nav>
       <a class="pill-btn" href="tel:0586813584">0586-81-3584</a>
@@ -211,59 +328,113 @@
 <main id="top">
 
 <section class="hero">
-  <img src="hero.jpg" alt="SUCプランニング有限会社が拠点とする一宮市の夜景">
-  <div class="wrap hero-copy">
-    <p class="eyebrow">Electric / Communication / Energy</p>
-    <h1>電気と通信で、<br>暮らしに、<br>確かな安心を。</h1>
-    <p>愛知県一宮市を拠点に、電気工事・LAN工事から太陽光発電、オール電化、EV充電設備まで。有資格者による確かな施工で現場にお応えします。</p>
+  <div class="hero-inner">
+    <img class="hero-mark" src="img/logo-mark.svg" alt="SUCプランニング有限会社 ロゴ" width="190" height="95" fetchpriority="high">
+    <h1 class="hero-tagline">暮らしに、<br>確かな安心を。</h1>
   </div>
-  <div class="hero-scroll" aria-hidden="true"><span>SCROLL</span><span class="line"></span></div>
 </section>
 
 <section class="services" id="services">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">Services</p>
-      <h2>事業内容</h2>
-      <p>電気工事を軸に、太陽光発電・エコキュート・EV充電設備の設置からメンテナンスまで、有資格者が一件ずつ丁寧に施工します。住宅から店舗・施設まで、規模を問わずご相談いただけます。</p>
+      <h2>事業内容<span class="en">Services</span></h2>
+      <p>電気工事を軸とした建設工事事業に加え、レンタル事業・マンスリー賃貸事業を展開しています。地域の暮らしと事業、そして訪れる人の滞在まで支えます。</p>
+    </div>
+
+    <div class="biz">
+    <div class="biz-head">
+      <span class="biz-no">BUSINESS 01</span>
+      <h3>建設工事事業</h3>
+      <p>電気工事から再エネ・蓄電池、EV充電設備まで、有資格者が一件ずつ丁寧に施工します。住宅から店舗・施設まで、規模を問わずご相談いただけます。</p>
     </div>
     <div class="service-list">
 
-      <div class="service-row" data-n="01">
-        <div class="num-face">01</div>
-        <h3><svg class="icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M19 3L8 19h7l-2 12L27 15h-8l0-12z" stroke="#1C8A54" stroke-width="1.8" stroke-linejoin="round"/></svg>電気工事</h3>
-        <p>住宅・店舗・施設の配線・盤工事など、暮らしと事業を支える電気設備を施工します。</p>
+      <div class="service-row">
+        <div class="service-num num-face">01</div>
+        <div class="service-body" data-n="01">
+          <h3><svg class="icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M19 3L8 19h7l-2 12L27 15h-8l0-12z" stroke="#004A8B" stroke-width="1.8" stroke-linejoin="round"/></svg>電気工事</h3>
+          <p>住宅・店舗・施設の配線・盤工事など、暮らしと事業を支える電気設備を施工します。</p>
+        </div>
       </div>
-      <div class="service-row" data-n="02">
-        <div class="num-face">02</div>
-        <h3><svg class="icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="17" r="5" stroke="#1C8A54" stroke-width="1.8"/><path d="M17 4v4M17 26v4M4 17h4M26 17h4M8 8l3 3M23 23l3 3M26 8l-3 3M11 23l-3 3" stroke="#1C8A54" stroke-width="1.8" stroke-linecap="round"/></svg>太陽光発電システム</h3>
-        <p>ソーラーパネルの設置設計から施工・メンテナンスまで、創エネ設備の導入をサポートします。</p>
+      <div class="service-row">
+        <div class="service-num num-face">02</div>
+        <div class="service-body" data-n="02">
+          <h3><svg class="icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="17" r="5" stroke="#004A8B" stroke-width="1.8"/><path d="M17 4v4M17 26v4M4 17h4M26 17h4M8 8l3 3M23 23l3 3M26 8l-3 3M11 23l-3 3" stroke="#004A8B" stroke-width="1.8" stroke-linecap="round"/></svg>再エネ・系統蓄電池EPC</h3>
+          <p>太陽光発電・系統蓄電池の設計及び施工からメンテナンスまで、創エネ・蓄エネ設備の導入をサポートします。</p>
+        </div>
       </div>
-      <div class="service-row" data-n="03">
-        <div class="num-face">03</div>
-        <h3><svg class="icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M17 5c5 6 8 10 8 14a8 8 0 1 1-16 0c0-4 3-8 8-14z" stroke="#1C8A54" stroke-width="1.8" stroke-linejoin="round"/></svg>エコキュート・オール電化</h3>
-        <p>給湯・調理まで電気でまかなうオール電化システムの設置・切り替えに対応します。</p>
+      <div class="service-row">
+        <div class="service-num num-face">03</div>
+        <div class="service-body" data-n="03">
+          <h3><svg class="icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M17 5c5 6 8 10 8 14a8 8 0 1 1-16 0c0-4 3-8 8-14z" stroke="#004A8B" stroke-width="1.8" stroke-linejoin="round"/></svg>エコキュート・オール電化</h3>
+          <p>給湯・調理まで電気でまかなうオール電化システムの設置・切り替えに対応します。</p>
+        </div>
       </div>
-      <div class="service-row" data-n="04">
-        <div class="num-face">04</div>
-        <h3><svg class="icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="9" y="5" width="12" height="24" rx="1.5" stroke="#1C8A54" stroke-width="1.8"/><path d="M13 11h4M21 13h3a2 2 0 0 1 2 2v7a2 2 0 0 0 4 0v-9l-3-3" stroke="#1C8A54" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 16l-2 4h3l-2 4" stroke="#1C8A54" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>EV充電設備</h3>
-        <p>EVスタンドの設置や関連する土木工事など、電気自動車の充電に関わる工事を行います。</p>
+      <div class="service-row">
+        <div class="service-num num-face">04</div>
+        <div class="service-body" data-n="04">
+          <h3><svg class="icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="9" y="5" width="12" height="24" rx="1.5" stroke="#004A8B" stroke-width="1.8"/><path d="M13 11h4M21 13h3a2 2 0 0 1 2 2v7a2 2 0 0 0 4 0v-9l-3-3" stroke="#004A8B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 16l-2 4h3l-2 4" stroke="#004A8B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>EV充電設備</h3>
+          <p>EVスタンドの設置や関連する土木工事など、電気自動車の充電に関わる工事を行います。</p>
+        </div>
       </div>
-      <div class="service-row" data-n="05">
-        <div class="num-face">05</div>
-        <h3><svg class="icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="6" y="6" width="22" height="16" rx="1" stroke="#1C8A54" stroke-width="1.8"/><path d="M12 28h10M17 22v6" stroke="#1C8A54" stroke-width="1.8" stroke-linecap="round"/></svg>インターネット・LAN工事</h3>
-        <p>宅内・施設内のネットワーク配線設計から接続工事まで対応します。</p>
+      <div class="service-row">
+        <div class="service-num num-face">05</div>
+        <div class="service-body" data-n="05">
+          <h3><svg class="icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="6" y="6" width="22" height="16" rx="1" stroke="#004A8B" stroke-width="1.8"/><path d="M12 28h10M17 22v6" stroke="#004A8B" stroke-width="1.8" stroke-linecap="round"/></svg>インターネット・LAN工事</h3>
+          <p>宅内・施設内のネットワーク配線設計から接続工事まで対応します。</p>
+        </div>
       </div>
 
     </div>
+    </div>
+
+    <div class="biz">
+      <div class="biz-head">
+        <span class="biz-no">BUSINESS 02</span>
+        <h3>レンタル事業</h3>
+        <p>暮らしやレジャーに役立つレンタルサービスを運営しています。</p>
+      </div>
+      <div class="rental-grid">
+        <div class="rental-card">
+          <div class="badge"><svg viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M5 22v-5l3-6h18l3 6v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z" stroke="#004A8B" stroke-width="1.8" stroke-linejoin="round"/><path d="M5 17h24" stroke="#004A8B" stroke-width="1.8"/><circle cx="10.5" cy="23.5" r="2.5" fill="#fff" stroke="#004A8B" stroke-width="1.8"/><circle cx="23.5" cy="23.5" r="2.5" fill="#fff" stroke="#004A8B" stroke-width="1.8"/></svg></div>
+          <div>
+            <div class="kind">レンタカー</div>
+            <h4>エコカーレンタカー一宮</h4>
+            <p>一宮市を拠点に、日常のお出かけから出張・観光まで、環境にやさしいエコカーをお貸し出しします。</p>
+          </div>
+        </div>
+        <div class="rental-card">
+          <div class="badge"><svg viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M6 26L28 8" stroke="#004A8B" stroke-width="1.8" stroke-linecap="round"/><path d="M9 28L30 11" stroke="#004A8B" stroke-width="1.8" stroke-linecap="round"/><path d="M7 6l3 3M10 6l-3 3M22 25l3 3M25 25l-3 3" stroke="#004A8B" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <div>
+            <div class="kind">レンタルスキー</div>
+            <h4>めいほう れんたろう</h4>
+            <p>郡上・明宝エリアで、スキー・スノーボード用品のレンタルを行っています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz">
+      <div class="biz-head">
+        <span class="biz-no">BUSINESS 03</span>
+        <h3>マンスリー賃貸事業</h3>
+        <p>出張・研修・長期滞在などに、1か月単位でご利用いただける賃貸物件を4拠点で運営しています。</p>
+      </div>
+      <div class="stay-grid">
+        <div class="stay-card"><div class="pref">沖縄県</div><div class="city">名護</div></div>
+        <div class="stay-card"><div class="pref">大阪府</div><div class="city">東大阪</div></div>
+        <div class="stay-card"><div class="pref">岐阜県</div><div class="city">郡上 明宝</div></div>
+        <div class="stay-card"><div class="pref">岐阜県</div><div class="city">郡上 八幡</div></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <section class="works" id="works">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">Our Work</p>
-      <h2>施工実績・対応領域</h2>
+      <h2>施工実績・対応領域<span class="en">Our Work</span></h2>
       <p>戸建て住宅から店舗・施設まで、規模を問わずご相談いただいています。</p>
     </div>
     <div class="work-grid">
@@ -290,8 +461,7 @@
 <section class="quals" id="qualifications">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">Qualifications</p>
-      <h2>保有資格</h2>
+      <h2>保有資格<span class="en">Qualifications</span></h2>
       <p>電気・通信から設備、土木、安全管理まで、幅広い資格を持つスタッフが現場を担当します。</p>
     </div>
 
@@ -346,17 +516,37 @@
   </div>
 </section>
 
+<section class="greeting" id="greeting">
+  <div class="wrap greeting-inner">
+    <div class="greeting-photo">
+      <img src="img/president.jpg" alt="代表取締役 渡邉 大" width="600" height="800" loading="lazy" onerror="this.style.display='none'">
+    </div>
+    <div class="greeting-body">
+      <div class="section-head">
+        <h2>社長挨拶<span class="en">Message</span></h2>
+      </div>
+      <!-- ▼ 本文は仮の文章です。実際のご挨拶に差し替えてください -->
+      <p>平素より格別のご高配を賜り、厚く御礼申し上げます。</p>
+      <p>SUCプランニング有限会社は2001年の創業以来、愛知県一宮市を拠点に、電気工事を中心とした建設工事に取り組んでまいりました。現在では再生可能エネルギー・系統蓄電池の設計施工にも事業を広げ、地域のエネルギーを支える一翼を担っております。</p>
+      <p>また、レンタカー・レンタルスキーなどのレンタル事業、各地でのマンスリー賃貸事業を通じて、暮らしや滞在に寄り添うサービスもご提供しています。</p>
+      <p>これからも有資格者による確かな技術と誠実な対応を大切に、お客様と地域から信頼される会社であり続けるよう努めてまいります。今後とも変わらぬご愛顧を賜りますよう、よろしくお願い申し上げます。</p>
+      <!-- ▲ ここまで -->
+      <div class="greeting-sign"><span class="role">代表取締役</span><span class="name">渡邉 大</span></div>
+    </div>
+  </div>
+</section>
+
 <section class="profile" id="company">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">Company Profile</p>
-      <h2>会社概要</h2>
+      <h2>会社概要<span class="en">Company Profile</span></h2>
     </div>
     <table class="info-table">
       <tr><th scope="row">会社名</th><td>SUCプランニング有限会社</td></tr>
-      <tr><th scope="row">所在地</th><td><span class="loc-label">本社</span>〒491-0812<br>愛知県一宮市千秋町芝原字下山38-2<span class="loc-sep"></span><span class="loc-label">郡上営業所</span>〒501-4207<br>岐阜県郡上市八幡町西乙原5-3</td></tr>
+      <tr><th scope="row">所在地</th><td><span class="loc-label">本社</span>〒491-0812<br>愛知県一宮市千秋町芝原字下山38-2<br><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E6%84%9B%E7%9F%A5%E7%9C%8C%E4%B8%80%E5%AE%AE%E5%B8%82%E5%8D%83%E7%A7%8B%E7%94%BA%E8%8A%9D%E5%8E%9F%E5%AD%97%E4%B8%8B%E5%B1%B138-2" target="_blank" rel="noopener">Googleマップで見る</a><span class="loc-sep"></span><span class="loc-label">郡上営業所</span>〒501-4207<br>岐阜県郡上市八幡町西乙原5-3<br><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%B2%90%E9%98%9C%E7%9C%8C%E9%83%A1%E4%B8%8A%E5%B8%82%E5%85%AB%E5%B9%A1%E7%94%BA%E8%A5%BF%E4%B9%99%E5%8E%9F5-3" target="_blank" rel="noopener">Googleマップで見る</a></td></tr>
+      <tr><th scope="row">対応エリア</th><td>愛知県一宮市を中心とした愛知県内、岐阜県郡上市周辺<br>（その他の地域もご相談ください）</td></tr>
       <tr><th scope="row">電話</th><td><a href="tel:0586813584">0586-81-3584</a></td></tr>
-      <tr><th scope="row">代表者</th><td>代表取締役　渡邊　大</td></tr>
+      <tr><th scope="row">代表者</th><td>代表取締役　渡邉　大</td></tr>
       <tr><th scope="row">資本金</th><td>2,000万円</td></tr>
       <tr><th scope="row">売上高</th><td>令和6年度　1億5,000万円<br>令和7年度　2億9,000万円</td></tr>
       <tr><th scope="row">設立</th><td>2001年12月20日</td></tr>
@@ -371,7 +561,7 @@
     <div>
       <p class="eyebrow">Contact</p>
       <h2>工事のご相談・お見積りはお気軽に</h2>
-      <p>住宅・店舗・施設を問わず、まずはお電話でご相談ください。</p>
+      <p>工事のご相談はもちろん、レンタル・マンスリー賃貸のお問い合わせもお電話で承ります。</p>
     </div>
     <a class="contact-tel" href="tel:0586813584">
       <span class="label">お電話でのお問い合わせ</span>
@@ -384,11 +574,12 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <span class="footer-brand">SUCプランニング有限会社</span>
+    <img class="footer-logo" src="img/logo-en.png" alt="SUC PLANNING CO., LTD." width="256" height="16" loading="lazy">
     <nav class="footer-links" aria-label="フッターメニュー">
       <a href="#services">事業内容</a>
       <a href="#works">施工実績</a>
       <a href="#qualifications">保有資格</a>
+      <a href="#greeting">社長挨拶</a>
       <a href="#company">会社概要</a>
     </nav>
     <span>&copy; SUC PLANNING CO., LTD. All Rights Reserved.</span>
